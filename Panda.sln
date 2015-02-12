@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B47331E1-CE71-41DB-A97C-3013012531B3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\Create-Package.ps1 = .nuget\Create-Package.ps1
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuspec files", "Nuspec files", "{1917D946-D099-41F5-BD5C-A81F0398280B}"
+	ProjectSection(SolutionItems) = preProject
+		Panda.ApplicationCore\Panda.ApplicationCore.nuspec = Panda.ApplicationCore\Panda.ApplicationCore.nuspec
+		Panda.UI\Panda.UI.nuspec = Panda.UI\Panda.UI.nuspec
+		Panda.Utilities\Panda.Utilities.nuspec = Panda.Utilities\Panda.Utilities.nuspec
+		Panda.WebCrawler\Panda.WebCrawler.nuspec = Panda.WebCrawler\Panda.WebCrawler.nuspec
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.WebCrawler", "Panda.WebCrawler\Panda.WebCrawler.csproj", "{B998DA9B-237E-46E8-8053-F088E44B97A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.UI", "Panda.UI\Panda.UI.csproj", "{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.Utilities", "Panda.Utilities\Panda.Utilities.csproj", "{B65BC4AC-8EDD-49D1-8D7A-4BC6CF0AC206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.ApplicationCore", "Panda.ApplicationCore\Panda.ApplicationCore.csproj", "{F2E13FE1-8D3E-4DC2-B1A8-38645F64CC35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B65BC4AC-8EDD-49D1-8D7A-4BC6CF0AC206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B65BC4AC-8EDD-49D1-8D7A-4BC6CF0AC206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B65BC4AC-8EDD-49D1-8D7A-4BC6CF0AC206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B65BC4AC-8EDD-49D1-8D7A-4BC6CF0AC206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E13FE1-8D3E-4DC2-B1A8-38645F64CC35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E13FE1-8D3E-4DC2-B1A8-38645F64CC35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E13FE1-8D3E-4DC2-B1A8-38645F64CC35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E13FE1-8D3E-4DC2-B1A8-38645F64CC35}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
