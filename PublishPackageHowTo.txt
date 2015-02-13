@@ -1,0 +1,3 @@
+How to publish a package
+
+.\.nuget\nuget.exe push <Name of *.nupkg>

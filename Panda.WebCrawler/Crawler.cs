@@ -37,7 +37,7 @@ namespace Panda.WebCrawler
             CreateCache(url);
             queue.Enqueue(url);
         }
-
+        
         private void CreateCache(string url)
         {
             var filename = url.TrimEnd(new []{'/'})
@@ -86,9 +86,11 @@ namespace Panda.WebCrawler
             log.Debug("Crawling started");
             var sw = Stopwatch.StartNew();
 
+            var overall_progress = options.GetOverallProgress();
             for (var i = 0; i < options.MaxThreadCount; i++)
             {
                 var consumer_id = "Consumer " + i;
+                var progress = options.GetThreadProgress(i);
                 var consumer_task = Task.Factory.StartNew(() =>
                 {
                     log.Debug("Starting consumer " + consumer_id);
@@ -121,6 +123,8 @@ namespace Panda.WebCrawler
 
                                 page_processor.Process(page);
 
+                                progress.Report(string.Format("Processed {0} in {1} ms", url, page.DownloadTime));
+                                overall_progress.Report(string.Format("Queue {0}, Visited {1}", queue.Count, visited.Count));
                                 log.Trace("{0} processed {1} in {2} ms [queue {3}, visited {4}]", consumer_id, url, page.DownloadTime, queue.Count, visited.Count);
                             }
 
