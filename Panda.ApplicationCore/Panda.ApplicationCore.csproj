@@ -90,6 +90,7 @@
       <DependentUpon>HostDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\IHaveDoneTask.cs" />
+    <Compile Include="Extensions\ReactiveListExtensions.cs" />
     <Compile Include="IOrderMetadata.cs" />
     <Compile Include="Menu\Controls\MenuEx.cs" />
     <Compile Include="Menu\Controls\MenuItemEx.cs" />

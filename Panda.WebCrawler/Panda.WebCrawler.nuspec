@@ -13,7 +13,7 @@
     <tags>Panda Framework WebCrawler</tags>
 
     <dependencies>
-      <dependency id="Panda.Utilities" version="0.1.0" />
+      <dependency id="Panda.Utilities" version="0.1.0-alpha" />
     </dependencies>
   </metadata>
 </package>

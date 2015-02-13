@@ -60,6 +60,8 @@ namespace Panda.WebCrawler
             if (disposed)
                 return;
 
+            options.GetOverallProgress().Report("Saving cache");
+
             try
             {
                 if (disposing)
@@ -87,6 +89,8 @@ namespace Panda.WebCrawler
             var sw = Stopwatch.StartNew();
 
             var overall_progress = options.GetOverallProgress();
+            overall_progress.Report("Crawling started");
+
             for (var i = 0; i < options.MaxThreadCount; i++)
             {
                 var consumer_id = "Consumer " + i;
