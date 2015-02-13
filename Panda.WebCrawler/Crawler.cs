@@ -23,16 +23,19 @@ namespace Panda.WebCrawler
         private readonly ILinkExtractor link_extractor;
         private readonly IPageProcessor page_processor;
         private readonly CrawlerOptions options;
+        private readonly CrawlerProgress progress;
         private bool disposed;
         private Cache cache;
 
-        public Crawler(string url) : this(url, new CrawlerOptions(), new AllInternalLinksExtractor(url.GetHost()), new NullPageProcessor()) { }
-        public Crawler(string url, CrawlerOptions options) : this(url, options, new AllInternalLinksExtractor(url.GetHost()), new NullPageProcessor()) { }
-        public Crawler(string url, CrawlerOptions options, ILinkExtractor link_extractor, IPageProcessor page_processor)
+        public Crawler(string url) : this(url, new CrawlerOptions(), new CrawlerProgress(), new InternalAnchorLinksExtractor(url.GetHost()), new NullPageProcessor()) { }
+        public Crawler(string url, CrawlerOptions options) : this(url, options, new CrawlerProgress(), new InternalAnchorLinksExtractor(url.GetHost()), new NullPageProcessor()) { }
+        public Crawler(string url, CrawlerOptions options, CrawlerProgress progress) : this(url, options, progress, new InternalAnchorLinksExtractor(url.GetHost()), new NullPageProcessor()) { }
+        public Crawler(string url, CrawlerOptions options, CrawlerProgress progress, ILinkExtractor link_extractor, IPageProcessor page_processor)
         {
             this.options = options;
             this.link_extractor = link_extractor;
             this.page_processor = page_processor;
+            this.progress = progress;
             EnsureMinThreadCount();
             CreateCache(url);
             queue.Enqueue(url);
@@ -60,8 +63,6 @@ namespace Panda.WebCrawler
             if (disposed)
                 return;
 
-            options.GetOverallProgress().Report("Saving cache");
-
             try
             {
                 if (disposing)
@@ -88,13 +89,12 @@ namespace Panda.WebCrawler
             log.Debug("Crawling started");
             var sw = Stopwatch.StartNew();
 
-            var overall_progress = options.GetOverallProgress();
-            overall_progress.Report("Crawling started");
+            progress.Report("Crawling started");
 
             for (var i = 0; i < options.MaxThreadCount; i++)
             {
                 var consumer_id = "Consumer " + i;
-                var progress = options.GetThreadProgress(i);
+                var task_progress = progress[i];
                 var consumer_task = Task.Factory.StartNew(() =>
                 {
                     log.Debug("Starting consumer " + consumer_id);
@@ -127,14 +127,15 @@ namespace Panda.WebCrawler
 
                                 page_processor.Process(page);
 
-                                progress.Report(string.Format("Processed {0} in {1} ms", url, page.DownloadTime));
-                                overall_progress.Report(string.Format("Queue {0}, Visited {1}", queue.Count, visited.Count));
+                                progress.Report(string.Format("Queued {0}, Visited {1}", queue.Count, visited.Count));
+                                task_progress.Report(string.Format("Processed {0} in {1} ms", url, page.DownloadTime));
                                 log.Trace("{0} processed {1} in {2} ms [queue {3}, visited {4}]", consumer_id, url, page.DownloadTime, queue.Count, visited.Count);
                             }
 
                             Interlocked.Decrement(ref execution_count);
                         }
 
+                        task_progress.Report(page_provide.Status());
                         log.Debug("Stopping consumer {0} [{1}]", consumer_id, page_provide.Status());
                     }
                 }, cts.Token);
@@ -155,6 +156,7 @@ namespace Panda.WebCrawler
                 }
 
                 var elapsed = sw.StopAndGetElapsedMilliseconds();
+                progress.Report("Crawling done");
                 log.Debug("Crawl done [elapsed time {0} ms]", elapsed);
             }, cts.Token);
             tasks.Add(download_completion_task);
