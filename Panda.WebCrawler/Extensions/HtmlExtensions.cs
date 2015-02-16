@@ -28,5 +28,13 @@ namespace Panda.WebCrawler.Extensions
                 new List<string>() :
                 new List<string>(nodes.Select(n => n.GetAttributeValue("src", string.Empty))));
         }
+
+        public static List<string> GetImageLinks(this HtmlDocument doc)
+        {
+            var nodes = doc.DocumentNode.SelectNodes("//img[@src]");
+            return (nodes == null ?
+                new List<string>() :
+                new List<string>(nodes.Select(n => n.GetAttributeValue("src", string.Empty))));
+        }
     }
 }

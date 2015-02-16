@@ -36,6 +36,8 @@ namespace Panda.WebCrawler
             this.link_extractor = link_extractor;
             this.page_processor = page_processor;
             this.progress = progress;
+
+            progress.Report("Initializing crawler");
             EnsureMinThreadCount();
             CreateCache(url);
             queue.Enqueue(url);
@@ -68,6 +70,7 @@ namespace Panda.WebCrawler
                 if (disposing)
                 {
                     // Free any other managed objects here.
+                    progress.Report("Finalizing crawler");
                     cache.Dispose(); // This also saves the cache
                 }
                 // Free any unmanaged objects here. 
