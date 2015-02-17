@@ -17,10 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuspec files", "Nuspec file
 		Panda.ApplicationCore\Panda.ApplicationCore.nuspec = Panda.ApplicationCore\Panda.ApplicationCore.nuspec
 		Panda.UI\Panda.UI.nuspec = Panda.UI\Panda.UI.nuspec
 		Panda.Utilities\Panda.Utilities.nuspec = Panda.Utilities\Panda.Utilities.nuspec
-		Panda.WebCrawler\Panda.WebCrawler.nuspec = Panda.WebCrawler\Panda.WebCrawler.nuspec
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.WebCrawler", "Panda.WebCrawler\Panda.WebCrawler.csproj", "{B998DA9B-237E-46E8-8053-F088E44B97A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.UI", "Panda.UI\Panda.UI.csproj", "{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}"
 EndProject
@@ -34,10 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B998DA9B-237E-46E8-8053-F088E44B97A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF6FACD2-17D9-41B4-9BC7-19312DB86A71}.Release|Any CPU.ActiveCfg = Release|Any CPU

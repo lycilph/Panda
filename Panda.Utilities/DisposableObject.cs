@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Panda.WebCrawler.Utils
+namespace Panda.Utilities
 {
     public class DisposableObject : IDisposable
     {
