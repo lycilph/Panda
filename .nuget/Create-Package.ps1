@@ -6,5 +6,5 @@ Invoke-Expression "$msbuild $solution /p:Configuration=Release /t:rebuild /v:min
 $files = Get-ChildItem -Exclude "*test*" -Include "*.csproj" -Recurse
 foreach ($file in $files)
 {
-  .\.nuget\nuget.exe pack $file -OutputDirectory .nuget -Prop Configuration=Release -Verbosity detailed
+  .\.nuget\nuget.exe pack $file -OutputDirectory ..\Releases\Nuget -Prop Configuration=Release -Verbosity detailed
 }
