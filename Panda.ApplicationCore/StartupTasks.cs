@@ -17,7 +17,7 @@ namespace Panda.ApplicationCore
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         [Export(ApplicationBootstrapper.STARTUP_TASK_NAME, typeof(BootstrapperTask))]
-        [ExportMetadata("Order", 0)]
+        [ExportOrder(0)]
         public void ApplyBindingScopeOverride()
         {
             logger.Trace("ApplyBindingScopeOverride");
@@ -80,7 +80,7 @@ namespace Panda.ApplicationCore
         }
 
         [Export(ApplicationBootstrapper.STARTUP_TASK_NAME, typeof(BootstrapperTask))]
-        [ExportMetadata("Order", 0)]
+        [ExportOrder(0)]
         public void ApplyParserOverride()
         {
             logger.Trace("ApplyParserOverride");

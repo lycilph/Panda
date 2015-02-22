@@ -112,7 +112,7 @@ namespace Panda.ApplicationCore
 
         protected virtual void RunTasks(string contract)
         {
-            container.GetExports<BootstrapperTask, IOrderMetadata>(contract)
+            container.GetExports<BootstrapperTask, IExportOrder>(contract)
                                  .OrderBy(item => item.Metadata.Order)
                                  .Apply(item => item.Value());
         }
