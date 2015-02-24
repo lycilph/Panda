@@ -119,6 +119,11 @@
     <Compile Include="Shell\ShellBase.cs" />
     <Compile Include="Shell\WindowCommand.cs" />
     <Compile Include="StartupTasks.cs" />
+    <Compile Include="Validation\ISupportValidation.cs" />
+    <Compile Include="Validation\IValidationRule.cs" />
+    <Compile Include="Validation\ValidationExtensions.cs" />
+    <Compile Include="Validation\ValidationRule.cs" />
+    <Compile Include="Validation\Validator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\HostDialog.xaml">
