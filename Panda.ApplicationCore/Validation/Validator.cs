@@ -22,7 +22,9 @@ namespace Panda.ApplicationCore.Validation
 
         public string Validate(string property)
         {
-            return Validate(new List<string> { property });
+            return validation_rules.ContainsKey(property) ? 
+                   Validate(new List<string> { property }) : 
+                   string.Empty;
         }
 
         private string Validate()
@@ -32,11 +34,15 @@ namespace Panda.ApplicationCore.Validation
 
         private string Validate(IEnumerable<string> properties)
         {
-            return properties.Where(p => validation_rules.ContainsKey(p))
-                             .Select(p => validation_rules[p])
-                             .Where(r => r.Validate())
-                             .Select(r => r.Message)
-                             .Aggregate((error, message) => error + message + Environment.NewLine);
+            var error_messages = properties.Intersect(validation_rules.Keys)
+                                           .Select(p => validation_rules[p])
+                                           .Where(r => !r.Validate())
+                                           .Select(r => r.Message)
+                                           .ToList();
+
+            return error_messages.Any() ? 
+                   error_messages.Aggregate((error, message) => error + message + Environment.NewLine) :
+                   string.Empty;
         }
     }
 }
