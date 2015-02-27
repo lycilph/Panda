@@ -5,4 +5,3 @@ The Framework consists of the following packages
 - Utilities
 - ApplicationCore
 - UI
-- WebCrawler
