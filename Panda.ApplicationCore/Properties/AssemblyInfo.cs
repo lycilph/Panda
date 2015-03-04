@@ -39,3 +39,4 @@ using System.Windows.Markup;
 
 [assembly: XmlnsDefinition("http://www.lycilph.com/Panda", "Panda.ApplicationCore")]
 [assembly: XmlnsDefinition("http://www.lycilph.com/Panda", "Panda.ApplicationCore.Shell")]
+[assembly: XmlnsDefinition("http://www.lycilph.com/Panda", "Panda.ApplicationCore.Converters")]

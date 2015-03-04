@@ -38,4 +38,3 @@ using System.Windows.Markup;
 [assembly: AssemblyInformationalVersion("0.1.0-alpha")]
 
 [assembly: XmlnsDefinition("http://www.lycilph.com/Panda", "Panda.UI")]
-[assembly: XmlnsDefinition("http://www.lycilph.com/Panda", "Panda.UI.Converters")]
