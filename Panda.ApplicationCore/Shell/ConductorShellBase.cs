@@ -1,10 +1,13 @@
 ﻿using Caliburn.Micro.ReactiveUI;
+using Panda.ApplicationCore.Menu;
 using Panda.ApplicationCore.Menu.ViewModels;
+using Panda.ApplicationCore.StatusBar;
+using Panda.ApplicationCore.StatusBar.ViewModels;
 using ReactiveUI;
 
 namespace Panda.ApplicationCore.Shell
 {
-    public class ConductorShell<T> : ReactiveConductor<T>, IShell where T : class 
+    public class ConductorShellBase<T> : ReactiveConductor<T>, IShell where T : class 
     {
         private readonly ReactiveList<IWindowCommand> left_shell_commands = new ReactiveList<IWindowCommand>();
         public ReactiveList<IWindowCommand> LeftShellCommands 
@@ -29,6 +32,12 @@ namespace Panda.ApplicationCore.Shell
         public IMenu Menu
         {
             get { return menu; }
+        }
+
+        private readonly IStatusBar _StatusBar = new StatusBarViewModel();
+        public IStatusBar StatusBar
+        {
+            get { return _StatusBar; }
         }
     }
 }

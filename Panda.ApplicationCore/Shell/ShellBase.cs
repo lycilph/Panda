@@ -1,5 +1,8 @@
 ﻿using Caliburn.Micro.ReactiveUI;
+using Panda.ApplicationCore.Menu;
 using Panda.ApplicationCore.Menu.ViewModels;
+using Panda.ApplicationCore.StatusBar;
+using Panda.ApplicationCore.StatusBar.ViewModels;
 using ReactiveUI;
 
 namespace Panda.ApplicationCore.Shell
@@ -19,7 +22,6 @@ namespace Panda.ApplicationCore.Shell
         }
 
         private readonly ReactiveList<IFlyout> shell_flyouts = new ReactiveList<IFlyout>();
-
         public ReactiveList<IFlyout> ShellFlyouts
         {
             get { return shell_flyouts; }
@@ -29,6 +31,12 @@ namespace Panda.ApplicationCore.Shell
         public IMenu Menu
         {
             get { return menu; }
+        }
+
+        private readonly IStatusBar _StatusBar = new StatusBarViewModel();
+        public IStatusBar StatusBar
+        {
+            get { return _StatusBar; }
         }
     }
 }

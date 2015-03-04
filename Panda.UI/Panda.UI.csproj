@@ -40,10 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimatedPanel.cs" />
-    <Compile Include="Converters\BooleanConverter.cs" />
-    <Compile Include="Converters\BooleanToImageConverter.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\NegatedBooleanConverter.cs" />
     <Compile Include="EditableTextControl.xaml.cs">
       <DependentUpon>EditableTextControl.xaml</DependentUpon>
     </Compile>

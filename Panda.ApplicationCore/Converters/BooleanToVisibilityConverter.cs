@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Panda.UI.Converters
+namespace Panda.ApplicationCore.Converters
 {
     public class BooleanToVisibilityConverter : BooleanConverter<Visibility>
     {

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Panda.UI.Converters
+namespace Panda.ApplicationCore.Converters
 {
     public abstract class BooleanConverter<T> : IValueConverter
     {

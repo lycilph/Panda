@@ -86,6 +86,10 @@
   <ItemGroup>
     <Compile Include="ApplicationBootstrapper.cs" />
     <Compile Include="BootstrapperTask.cs" />
+    <Compile Include="Converters\BooleanConverter.cs" />
+    <Compile Include="Converters\BooleanToImageConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\NegatedBooleanConverter.cs" />
     <Compile Include="Dialogs\DialogButtons.cs" />
     <Compile Include="Dialogs\DialogController.cs" />
     <Compile Include="Dialogs\HostDialog.xaml.cs">
@@ -96,7 +100,7 @@
     <Compile Include="IExportOrder.cs" />
     <Compile Include="Menu\Controls\MenuEx.cs" />
     <Compile Include="Menu\Controls\MenuItemEx.cs" />
-    <Compile Include="Menu\ViewModels\IMenu.cs" />
+    <Compile Include="Menu\IMenu.cs" />
     <Compile Include="Menu\ViewModels\MenuItem.cs" />
     <Compile Include="Menu\ViewModels\MenuItemBase.cs" />
     <Compile Include="Menu\ViewModels\MenuItemSeparator.cs" />
@@ -107,7 +111,7 @@
     <Compile Include="MVVM\ItemViewModelBase.cs" />
     <Compile Include="ExportOrderAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shell\ConductorShell.cs" />
+    <Compile Include="Shell\ConductorShellBase.cs" />
     <Compile Include="Shell\FlyoutBase.cs" />
     <Compile Include="Shell\IFlyout.cs" />
     <Compile Include="Shell\IInputManager.cs" />
@@ -119,6 +123,20 @@
     <Compile Include="Shell\ShellBase.cs" />
     <Compile Include="Shell\WindowCommand.cs" />
     <Compile Include="StartupTasks.cs" />
+    <Compile Include="StatusBar\IStatusBar.cs" />
+    <Compile Include="StatusBar\ViewModels\StatusBarItemBase.cs" />
+    <Compile Include="StatusBar\ViewModels\StatusBarProgressItemViewModel.cs" />
+    <Compile Include="StatusBar\ViewModels\StatusBarTextItemViewModel.cs" />
+    <Compile Include="StatusBar\ViewModels\StatusBarViewModel.cs" />
+    <Compile Include="StatusBar\Views\StatusBarProgressItemView.xaml.cs">
+      <DependentUpon>StatusBarProgressItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Views\StatusBarTextItemView.xaml.cs">
+      <DependentUpon>StatusBarTextItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Views\StatusBarView.xaml.cs">
+      <DependentUpon>StatusBarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validation\ISupportValidation.cs" />
     <Compile Include="Validation\IValidationRule.cs" />
     <Compile Include="Validation\ValidationExtensions.cs" />
@@ -131,6 +149,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Menu\Views\MenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Views\StatusBarProgressItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Views\StatusBarTextItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Views\StatusBarView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

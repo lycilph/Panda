@@ -1,4 +1,4 @@
-namespace Panda.UI.Converters
+namespace Panda.ApplicationCore.Converters
 {
     public class NegatedBooleanConverter : BooleanConverter<bool>
     {

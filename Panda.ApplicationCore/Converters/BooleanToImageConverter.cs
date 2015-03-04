@@ -1,6 +1,6 @@
 using System.Windows.Media.Imaging;
 
-namespace Panda.UI.Converters
+namespace Panda.ApplicationCore.Converters
 {
     public class BooleanToImageConverter : BooleanConverter<BitmapImage>
     {

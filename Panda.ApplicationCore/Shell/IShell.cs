@@ -1,4 +1,5 @@
-﻿using Panda.ApplicationCore.Menu.ViewModels;
+﻿using Panda.ApplicationCore.Menu;
+using Panda.ApplicationCore.StatusBar;
 using ReactiveUI;
 
 namespace Panda.ApplicationCore.Shell
@@ -9,5 +10,6 @@ namespace Panda.ApplicationCore.Shell
         ReactiveList<IWindowCommand> RightShellCommands { get; }
         ReactiveList<IFlyout> ShellFlyouts { get; }
         IMenu Menu { get; }
+        IStatusBar StatusBar { get; }
     }
 }
