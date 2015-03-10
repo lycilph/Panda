@@ -9,7 +9,12 @@ namespace Panda.Utilities.Extensions
     {
         public static void WriteToFile<T>(string filename, T obj)
         {
-            var json = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            WriteToFile(filename, obj, new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+        }
+
+        public static void WriteToFile<T>(string filename, T obj, JsonSerializerSettings settings)
+        {
+            var json = JsonConvert.SerializeObject(obj, Formatting.Indented, settings);
             File.WriteAllText(filename, json);
         }
 
