@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Panda.ApplicationCore.Validation
+namespace Panda.ApplicationCore.Utilities.Validation
 {
     public class Validator
     {

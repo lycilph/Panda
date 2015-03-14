@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace Panda.ApplicationCore.MVVM
+namespace Panda.ApplicationCore.Utilities
 {
     public class ItemViewModelBase<T> : ReactiveObject
     {

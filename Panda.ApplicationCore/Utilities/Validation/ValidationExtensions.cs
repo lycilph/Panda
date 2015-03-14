@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Panda.ApplicationCore.Validation
+namespace Panda.ApplicationCore.Utilities.Validation
 {
     public static class ValidationExtensions
     {

@@ -1,4 +1,4 @@
-﻿namespace Panda.ApplicationCore.Validation
+﻿namespace Panda.ApplicationCore.Utilities.Validation
 {
     public interface IValidationRule
     {

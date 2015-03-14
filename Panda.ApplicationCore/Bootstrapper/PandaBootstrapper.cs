@@ -8,11 +8,12 @@ using System.Windows;
 using Caliburn.Micro;
 using NLog;
 using Panda.ApplicationCore.Shell;
+using Panda.ApplicationCore.Utilities;
 using LogManager = Caliburn.Micro.LogManager;
 
-namespace Panda.ApplicationCore
+namespace Panda.ApplicationCore.Bootstrapper
 {
-    public class ApplicationBootstrapper : BootstrapperBase
+    public class PandaBootstrapper : BootstrapperBase
     {
         private static readonly Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private CompositionContainer container;
@@ -20,12 +21,12 @@ namespace Panda.ApplicationCore
         public const string STARTUP_TASK_NAME = "Startup";
         public const string SHUTDOWN_TASK_NAME = "Shutdown";
 
-        static ApplicationBootstrapper()
+        static PandaBootstrapper()
         {
             LogManager.GetLog = type => new DebugLog(type);
         }
 
-        public ApplicationBootstrapper()
+        public PandaBootstrapper()
         {
             logger.Trace("Created");
             Initialize();

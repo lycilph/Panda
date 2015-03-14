@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Panda.ApplicationCore
+namespace Panda.ApplicationCore.Utilities
 {
     public interface IExportOrder
     {

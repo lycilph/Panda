@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Panda.ApplicationCore.Validation
+namespace Panda.ApplicationCore.Utilities.Validation
 {
     public interface ISupportValidation : IDataErrorInfo
     {

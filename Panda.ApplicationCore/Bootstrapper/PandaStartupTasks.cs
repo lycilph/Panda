@@ -8,15 +8,16 @@ using Caliburn.Micro;
 using MahApps.Metro.Controls;
 using NLog;
 using Panda.ApplicationCore.Shell;
+using Panda.ApplicationCore.Utilities;
 using LogManager = NLog.LogManager;
 
-namespace Panda.ApplicationCore
+namespace Panda.ApplicationCore.Bootstrapper
 {
-    public class StartupTasks
+    public class PandaStartupTasks
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        [Export(ApplicationBootstrapper.STARTUP_TASK_NAME, typeof(BootstrapperTask))]
+        [Export(PandaBootstrapper.STARTUP_TASK_NAME, typeof(BootstrapperTask))]
         [ExportOrder(0)]
         public void ApplyBindingScopeOverride()
         {
@@ -79,7 +80,7 @@ namespace Panda.ApplicationCore
             return list;
         }
 
-        [Export(ApplicationBootstrapper.STARTUP_TASK_NAME, typeof(BootstrapperTask))]
+        [Export(PandaBootstrapper.STARTUP_TASK_NAME, typeof(BootstrapperTask))]
         [ExportOrder(0)]
         public void ApplyParserOverride()
         {

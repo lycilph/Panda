@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ReactiveUI;
 
-namespace Panda.ApplicationCore.Extensions
+namespace Panda.ApplicationCore.Utilities
 {
     public static class ReactiveListExtensions
     {

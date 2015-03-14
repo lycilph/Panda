@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Panda.ApplicationCore.Validation
+namespace Panda.ApplicationCore.Utilities.Validation
 {
     public class ValidationRule<S, T> : IValidationRule
     {

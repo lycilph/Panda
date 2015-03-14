@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 
-namespace Panda.ApplicationCore
+namespace Panda.ApplicationCore.Utilities
 {
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.All, AllowMultiple = false)]
