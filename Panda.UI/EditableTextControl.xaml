@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Panda.UI"
              mc:Ignorable="d" 
              d:DesignHeight="300"
-             d:DesignWidth="300">
+             d:DesignWidth="300"
+             Focusable="False">
     <UserControl.Template>
         <ControlTemplate TargetType="{x:Type local:EditableTextControl}">
             <Grid VerticalAlignment="Center">
