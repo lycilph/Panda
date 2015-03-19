@@ -15,7 +15,7 @@ namespace Panda.Utilities.Extensions
         {
             var regulator = new ObservableRegulator<T>(duration, scheduler);
 
-            return Observable.Create<T>(observer => observable.Subscribe(obj => regulator.ProcessItem(obj, observer)));
+            return Observable.Create<T>(observer => observable.Subscribe(obj => regulator.ProcessItem(obj, observer), () => regulator.Complete(observer)));
         }
 
         private class ObservableRegulator<T>
@@ -32,7 +32,7 @@ namespace Panda.Utilities.Extensions
                 this.scheduler = scheduler;
             }
 
-            public void ProcessItem(T val, IObserver<T> observer)
+            private void Schedule(Action action)
             {
                 var can_broadcast_now = false;
                 var next_entry_time = DateTimeOffset.MaxValue;
@@ -54,13 +54,22 @@ namespace Panda.Utilities.Extensions
 
                 if (can_broadcast_now)
                 {
-                    observer.OnNext(val);
+                    action();
                 }
                 else
                 {
-                    scheduler.Schedule(next_entry_time, () => observer.OnNext(val));
+                    scheduler.Schedule(next_entry_time, action);
                 }
+            }
 
+            public void ProcessItem(T val, IObserver<T> observer)
+            {
+                Schedule(() => observer.OnNext(val));
+            }
+
+            public void Complete(IObserver<T> observer)
+            {
+                Schedule(observer.OnCompleted);
             }
         }
     }
