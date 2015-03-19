@@ -8,8 +8,8 @@ namespace Panda.Utilities.Extensions
     {
         public static string GetResource(string name)
         {
-            var resource_name = Assembly.GetExecutingAssembly().GetManifestResourceNames().First(n => n.Contains(name));
-            using (var s = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource_name))
+            var resource_name = Assembly.GetEntryAssembly().GetManifestResourceNames().First(n => n.Contains(name));
+            using (var s = Assembly.GetEntryAssembly().GetManifestResourceStream(resource_name))
             using (var sr = new StreamReader(s))
             {
                 return sr.ReadToEnd();
